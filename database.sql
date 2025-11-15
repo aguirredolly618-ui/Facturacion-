@@ -8,11 +8,18 @@ CREATE TABLE t_ciudad(
     CONSTRAINT      pk_ciudad   PRIMARY KEY(id_ciudad)
 )ENGINE=InnoDb;
 
+INSERT INTO t_ciudad (id_ciudad, ciudad) VALUES (NULL,"Bogota");
+INSERT INTO t_ciudad (id_ciudad, ciudad) VALUES (NULL,"Ibague");
+INSERT INTO t_ciudad (id_ciudad, ciudad) VALUES (NULL,"Cartagena");
+
 CREATE TABLE t_unidad(
     id_unidad       int(11)     AUTO_INCREMENT NOT NULL,
     unidad          varchar(50),
     CONSTRAINT      pk_unidad   PRIMARY KEY(id_unidad)        
 )ENGINE=InnoDb;
+
+INSERT INTO t_unidad (id_unidad, unidad) VALUES(NULl,"UNIDAD"),(NULl,"KILO"),(NULl,"RESMA");
+
 
 CREATE TABLE t_cliente(
     id_cliente      int(11)     AUTO_INCREMENT NOT NULL,
@@ -25,8 +32,9 @@ CREATE TABLE t_cliente(
 
 CREATE TABLE t_producto(
     id_producto     int(11)     AUTO_INCREMENT NOT NULL,
-    t_producto      varchar(100),
+    producto      varchar(100),
     id_unidad       int(11),
+    vr_unitario     float(10,2),
     CONSTRAINT      pk_producto  PRIMARY KEY(id_producto),
     CONSTRAINT      fk_unidad    FOREIGN KEY(id_unidad) REFERENCES t_unidad(id_unidad) 
 )ENGINE=InnoDb;
